@@ -1,5 +1,5 @@
-# Traffic_detection_using_PIRs
-This repository contains the source code, data, and documents for the project on traffic detection using PIR sensors. 
+# Traffic detection using PIRs
+This repository is a place holder for the source code, data, and documents for the project on traffic detection using PIR sensors. 
 
 ## Folders
 
