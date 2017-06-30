@@ -1,5 +1,10 @@
+"""
+this is a live script to see if the PIR sensor ambient temperatures are consistent
+it will print asterisks for visualizing the difference in ambient temperature
+"""
+
 import sys
-sys.path.insert(1, '../../lib/')
+sys.path.insert(1, '../../../lib/')
 import numpy as np
 import os
 import time

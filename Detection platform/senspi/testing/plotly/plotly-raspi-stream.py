@@ -1,3 +1,7 @@
+# This is a plotly live demo to visualize and demo live sensor data
+# The imports need to be fixed to match the file hierarchy
+
+# imports
 import plotly.plotly as py
 import plotly.graph_objs as go
 import numpy as np
@@ -7,6 +11,7 @@ import datetime
 import random
 from sensor_classes import PIR_Array, ADC
 
+# plotly key
 username = 'modrie'
 api_key = 'mt2vyxp6mu'
 stream_token_pir = 'o4f0yesgv6'
@@ -14,11 +19,13 @@ stream_token_ult = 'mm2tpu7odu'
 time.sleep(10)
 py.sign_in(username, api_key)
 
+# initialize sensors
 pir = PIR_Array(400000)
 ult = ADC(400000)
 
 pir.set_frequency(16)
 
+# plot
 map1 = go.Heatmap(
         z=[],
         zmin=24,
@@ -67,4 +74,3 @@ while True:
         #i += 1
         # delay between stream posts
         time.sleep(1.0/16)
-

@@ -5,7 +5,7 @@ This script is used to collect multiple datasets to test various settings of the
 # Imports
 
 import sys
-sys.path.insert(0, '../../lib/')
+sys.path.insert(0, '../../../lib/')
 import time
 import numpy as np
 import ConfigParser
@@ -14,7 +14,7 @@ from mlx90621 import PIRArray
 import RPi.GPIO as gp
 
 # Variables
-## default params
+## initialize default params
 
 calc_temps = True
 start_hz = 32
@@ -29,7 +29,7 @@ sensor2 = False
 # load from config?
 load_config = True
 
-# load the config
+# load the config file
 if load_config:
     cfg = ConfigParser.ConfigParser()
     cfg.read("config.ini")
@@ -37,7 +37,7 @@ if load_config:
     # load into variables
     sensor1 = bool(int(cfg.get(section1,"sensor1")))
     sensor2 = bool(int(cfg.get(section1,"sensor2")))
-    
+
     calc_temps = bool(int(cfg.get(section1, "calc_temps")))
     start_hz = int(cfg.get(section1, "start_hz"))
     end_hz = int(cfg.get(section1, "end_hz"))
@@ -48,10 +48,12 @@ if load_config:
 
 # initialize variables and sensors
 
+## list of frequencies, do not touch
 freq_list = [1,2,4,8,16,32,64,128,256,512]
 
 pir = PIRArray(400000)
 
+#initializes status LED
 gp.setmode(gp.BOARD)
 gp.setup(32,gp.OUT)
 gp.output(32, True)
@@ -82,6 +84,7 @@ for x in range(num_sets):
                     break
             p=np.array(data)
             np.save(filename, p)
+        # sensor1
         elif sensor1:
             pir.set_frequency(frequency)
             data = []
@@ -94,7 +97,7 @@ for x in range(num_sets):
                 if calc_temps:
                     n = pir.pir1.calculate_4x16_np(pir.pir1.mlx_cshape(pir.pir1.mlx_ir_read()),pir.pir1.mlx_ptat(),pir.pir1.mlx_cp())
                 else:
-                    n = [pir.pir1.mlx_ir_read(),pir.pir1.mlx_ptat(),pir.pir1.mlx_cp()]                    
+                    n = [pir.pir1.mlx_ir_read(),pir.pir1.mlx_ptat(),pir.pir1.mlx_cp()]
                 data.append([datetime.now(),n])
                 while time.time()-time1<wait_time:
                     pass
@@ -102,6 +105,7 @@ for x in range(num_sets):
                     break
             p=np.array(data)
             np.save(filename, p)
+        #sensor2
         elif sensor2:
             pir.set_frequency(frequency)
             data = []
@@ -115,7 +119,7 @@ for x in range(num_sets):
                 if calc_temps:
                     n = pir.pir2.calculate_4x16_np(pir.pir2.mlx_cshape(pir.pir2.mlx_ir_read()),pir.pir2.mlx_ptat(),pir.pir2.mlx_cp())
                 else:
-                    n = [pir.pir2.mlx_ir_read(),pir.pir2.mlx_ptat(),pir.pir2.mlx_cp()]                    
+                    n = [pir.pir2.mlx_ir_read(),pir.pir2.mlx_ptat(),pir.pir2.mlx_cp()]
                 data.append([datetime.now(),n])
                 while time.time()-time1<wait_time:
                     pass
@@ -124,4 +128,6 @@ for x in range(num_sets):
             p=np.array(data)
             np.save(filename, p)
 
+#make sure the light shuts down before quitting!
+#in theory the pinnumber should be a variable, maybe in future revisions
 gp.output(32, False)

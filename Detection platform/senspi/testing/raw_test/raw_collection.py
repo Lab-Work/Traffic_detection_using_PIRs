@@ -1,14 +1,15 @@
+"""
+This script is built for the collection of raw data from the 3x pir sensors. 16 hz collection is ideal
+"""
 
-#built for the collection of raw data from the 3x pir sensors. 16 hz collection is ideal
-
-
-
+# imports
 import time
 import numpy as np
 from datetime import datetime
 from sensor_classes import *
 import RPi.GPIO as GPIO
 
+# LED pinout initialize
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(29,GPIO.OUT)
 GPIO.setup(31,GPIO.OUT)
@@ -28,7 +29,13 @@ i=0
 scale = 4.33/0.984
 
 data = file("60fov128hzt1.txt","a")
-try:    
+
+# most data collection scripts are the same:
+# set a loop that stops after a time counter,
+# wait until 1/framerate has passed,
+# run the loop again, and break if the time is up
+
+try:
     while True:
         time1=time.time()
         #np.savetxt(data,[pir.read_raw(),ult.read(sps=3300)*scale])
@@ -45,7 +52,3 @@ try:
 finally:
     x = np.array(dat_array)
     np.save(savename, x)
-
-
-
-

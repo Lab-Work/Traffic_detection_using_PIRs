@@ -9,7 +9,7 @@ filenames = ['128_300_0_150821.npy']
 #Imports
 
 import sys
-sys.path.insert(0, '../../lib/')
+sys.path.insert(0, '../../../lib/')
 import time
 import os #os.path.isfile()
 import numpy as np
