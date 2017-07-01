@@ -7,21 +7,10 @@ This repo contains all the files necessary to install and set up a Raspberry Pi 
 The sensor platform is currently set up using two 60 degree MLX90621 thermal cameras and one MB7076 Maxbotic ultrasonic sensor.
 
 ## File/Folder Breakdown
-### install.sh (WIP)
 
-This script allows for the setup of a Raspberry Pi. To begin the installation, run
+### /coordinator
 
-```
-./install.sh sensor
-```
-
-to install this Pi as a sensor cone, and
-
-```
-./install.sh validation
-```
-
-as a camera validation cone.
+This folder contains scripts to allow XBee control from a base computer.
 
 ### /src
 
