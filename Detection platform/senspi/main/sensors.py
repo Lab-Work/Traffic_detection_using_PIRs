@@ -54,15 +54,6 @@ try:
                 outpq.appendleft(["RUN","Off"])
             else:
                 pass
-# try:
-#     time1 = time.time()
-#     collectionhandler.start_flag()
-#     print "starting"
-#     while time.time() - time1 < 300:
-#         time.sleep(60)
-#         print "ping"
-#     collectionhandler.stop_flag()
-#     print "stopping"
 
 finally:
     collectionhandler.exit()
