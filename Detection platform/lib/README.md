@@ -1,6 +1,6 @@
 #  /src
 
-All libraries related to the sensor project will be located in this folder. This includes libraries for
+All libraries related to the sensor project will be located in this folder. This includes libraries for:
 
 
 ## mlx90621.py
@@ -24,3 +24,7 @@ This class initializes and sets up the GPS. Once a lock has been found, the time
 ## ads1015.py
 
 This class provides the interface for the ADS1015 to be used to read ultrasonic data.
+
+## sensor_classes.py (deprecated)
+
+This class previously contained all sensor interface classes. 
