@@ -1,4 +1,4 @@
-#Sensor Collection and Validation
+##Sensor Collection and Validation
 
 This repo contains all the files necessary to install and set up a Raspberry Pi from scratch for use with sensor data collection and camera data validation. The folder breakdown is as follows:
 
@@ -14,7 +14,7 @@ This folder contains scripts to allow XBee control from a base computer.
 
 ### /documentation
 
-This folder contains important documentation for software theory, hardware design and setup, and sensor operation.
+This folder contains important documentation for software theory, hardware design and setup, and sensor operation.  
 
 ### /src
 
