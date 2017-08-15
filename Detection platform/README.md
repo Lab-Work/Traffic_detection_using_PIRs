@@ -20,14 +20,14 @@ This folder contains important documentation for software theory, hardware desig
 
 This folder contains Mike M's BCM2835 libraries, and the PyBCM2835 module that needs installing. Run the install script to automatically install these two libraries and set up the library link.
 
-### /lib (WIP)
+### /lib
 
 This folder contains the classes needed for sensor operation.
 
-### /senspi (WIP)
+### /senspi
 
 This folder contains scripts for data collection and testing for a sensor platform.
 
-### /valpi (WIP)
+### /valpi
 
 This folder contains scripts for data collection and testing for a validation platform.
