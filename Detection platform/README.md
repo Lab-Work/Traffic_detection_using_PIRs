@@ -12,26 +12,22 @@ The sensor platform is currently set up using two 60 degree MLX90621 thermal cam
 
 This folder contains scripts to allow XBee control from a base computer.
 
+### /documentation
+
+This folder contains important documentation for software theory, hardware design and setup, and sensor operation.
+
 ### /src
 
 This folder contains Mike M's BCM2835 libraries, and the PyBCM2835 module that needs installing. Run the install script to automatically install these two libraries and set up the library link.
 
-### /lib (WIP)
+### /lib
 
 This folder contains the classes needed for sensor operation.
 
-### /senspi (WIP)
+### /senspi
 
 This folder contains scripts for data collection and testing for a sensor platform.
 
-### /valpi (WIP)
+### /valpi
 
 This folder contains scripts for data collection and testing for a validation platform.
-
-### /dsens (WIP)
-
-This folder contains the data that is written from a sensor platform.
-
-### /dval (WIP)
-
-This folder contains the data that is written from a validation platform.
