@@ -1,0 +1,6 @@
+[submodule "Traffic_Sensors_Algorithms"]
+	path = Traffic_Sensors_Algorithms
+	url = https://github.com/Lab-Work/Traffic_Sensors_Algorithms.git
+[submodule "ITS2017_Validation"]
+	path = ITS2017_Validation
+	url = https://github.com/Lab-Work/ITS2017_Validation.git
